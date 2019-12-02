@@ -3,10 +3,11 @@ import styled from "styled-components";
 
 const StyledCardContent = styled.div`
   p {
+    margin-top: 0.2rem;
     font-size: 0.8rem;
   }
 
-  h4 {
+  h5 {
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -47,22 +48,24 @@ const StyledCardContentScheduledTime = styled.div`
   }
 `;
 
-const StyledMessage = styled.p`
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+const StyledMessage = styled.div`
+  p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 `;
 
-const StyledMessageOverview = styled.p``;
+const StyledMessageOverview = styled.div``;
 
-const StyledRecipientList = styled.p``;
+const StyledRecipientList = styled.div``;
 
 function CardContent(props) {
   return (
     <StyledCardContent>
       <StyledCardContentHeader>
-        <StyledCardContentSubject>
+        <StyledCardContentSubject aria-label="Subject">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -71,30 +74,36 @@ function CardContent(props) {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
         </StyledCardContentSubject>
-        <StyledCardContentScheduledTime>
+        <StyledCardContentScheduledTime aria-label="Next Scheduled Send Time">
           <h5>Sends next on</h5>
           <p>12:00 PM MST</p>
           <p>2019/11/11</p>
         </StyledCardContentScheduledTime>
       </StyledCardContentHeader>
       <StyledMessage>
-        <h4>Message</h4>
-        Spicy jalapeno bacon ipsum dolor amet biltong salami aute corned beef
-        capicola sunt. Beef veniam est beef ribs pancetta tempor spare ribs pig
-        filet mignon dolor laboris aliquip tri-tip ipsum in. Sed shank dolor
-        adipisicing, cupim aliquip non cupidatat dolore. Velit cupidatat tongue
-        boudin ribeye. Do incididunt beef ribs, brisket spare ribs hamburger
-        laboris aliquip velit. Labore turkey ipsum sint tri-tip, ut filet mignon
-        shank magna tempor culpa brisket.
+        <h5 id="message">Message</h5>
+        <p aria-labelledby="message">
+          Spicy jalapeno bacon ipsum dolor amet biltong salami aute corned beef
+          capicola sunt. Beef veniam est beef ribs pancetta tempor spare ribs
+          pig filet mignon dolor laboris aliquip tri-tip ipsum in. Sed shank
+          dolor adipisicing, cupim aliquip non cupidatat dolore. Velit cupidatat
+          tongue boudin ribeye. Do incididunt beef ribs, brisket spare ribs
+          hamburger laboris aliquip velit. Labore turkey ipsum sint tri-tip, ut
+          filet mignon shank magna tempor culpa brisket.
+        </p>
       </StyledMessage>
       <StyledMessageOverview>
-        <h4>Report Schedule</h4>
-        Sends every Mon, Weds, Thurs, and Friday every 3rd week.
+        <h5 id="reportSchedule">Report Schedule</h5>
+        <p aria-labelledby="reportSchedule">
+          Sends every Mon, Weds, Thurs, and Friday every 3rd week.
+        </p>
       </StyledMessageOverview>
       <StyledRecipientList>
-        <h4>Sent To</h4>
-        stephen.kennicutt@test.testy.com{" "}
-        <a href="some reference here">+4 more...</a>
+        <h5 id="recipients">Sent To</h5>
+        <p aria-labelledby="recipients">
+          stephen.kennicutt@test.testy.com{" "}
+          <a href="some reference here">+4 more...</a>
+        </p>
       </StyledRecipientList>
     </StyledCardContent>
   );
