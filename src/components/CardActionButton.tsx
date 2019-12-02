@@ -10,13 +10,21 @@ interface IProps {
 }
 
 const StyledCardActionButton = styled.div`
-  width: 64px;
   height: 64px;
+  width: auto;
+  flex-grow: 1;
   display: inline-block;
-  margin: 0 auto;
+  margin: 0;
   text-align: center;
-  &:hover {
+
+  &:hover,
+  &:focus {
+    outline: solid 1px rgba(0, 0, 0, 0.2);
     background: rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    background: rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -26,14 +34,26 @@ const StyledCardActionIcon = styled(Octicon)`
   height: 100%;
 `;
 
+const isEnterOrSpace = (keyboardEvent: React.KeyboardEvent) => {
+  return keyboardEvent.key === "Enter" || keyboardEvent.key === " ";
+};
+
 function CardActionButton(props: IProps) {
   const { icon, onHover, onClickDown, onClickUp } = props;
   return (
     <StyledCardActionButton
+      role="button"
+      aria-pressed="mixed"
+      tabIndex={0}
       onMouseOut={() => onHover(false)}
       onMouseOver={() => onHover(true)}
+      onBlur={() => onHover(false)}
+      onFocus={() => onHover(true)}
       onMouseDown={() => onClickDown()}
       onMouseUp={() => onClickUp()}
+      onClick={() => onClickUp()}
+      onKeyDown={event => (isEnterOrSpace(event) ? onClickDown() : null)}
+      onKeyUp={event => (isEnterOrSpace(event) ? onClickUp() : null)}
     >
       <StyledCardActionIcon size="medium" icon={icon} />
     </StyledCardActionButton>

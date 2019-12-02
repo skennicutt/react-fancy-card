@@ -113,7 +113,7 @@ function Card(props) {
   );
 
   return (
-    <StyledCard>
+    <StyledCard role="region" aria-label="Example" tabIndex={0}>
       <StyledContent>{children}</StyledContent>
       <CardOverlay display={overlayDisplayState}>
         {overlayDisplayContent}

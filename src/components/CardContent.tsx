@@ -5,6 +5,11 @@ const StyledCardContent = styled.div`
   p {
     font-size: 0.8rem;
   }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 `;
 
 const StyledCardContentHeader = styled.div`
@@ -73,6 +78,7 @@ function CardContent(props) {
         </StyledCardContentScheduledTime>
       </StyledCardContentHeader>
       <StyledMessage>
+        <h4>Message</h4>
         Spicy jalapeno bacon ipsum dolor amet biltong salami aute corned beef
         capicola sunt. Beef veniam est beef ribs pancetta tempor spare ribs pig
         filet mignon dolor laboris aliquip tri-tip ipsum in. Sed shank dolor
@@ -82,10 +88,13 @@ function CardContent(props) {
         shank magna tempor culpa brisket.
       </StyledMessage>
       <StyledMessageOverview>
+        <h4>Report Schedule</h4>
         Sends every Mon, Weds, Thurs, and Friday every 3rd week.
       </StyledMessageOverview>
       <StyledRecipientList>
-        stephen.kennicutt@test.testy.com
+        <h4>Sent To</h4>
+        stephen.kennicutt@test.testy.com{" "}
+        <a href="some reference here">+4 more...</a>
       </StyledRecipientList>
     </StyledCardContent>
   );
