@@ -16,6 +16,7 @@ const StyledCardContent = styled.div`
 const StyledCardContentHeader = styled.div`
   display: flex;
   margin-top: 0.2rem;
+  border-bottom: 1px solid #e0e0e0;
 `;
 
 const StyledCardContentSubject = styled.h3`

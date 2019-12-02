@@ -16,9 +16,9 @@ const StyledCardOverlay = styled.div`
   height: 100%;
   z-index: 1;
   background: linear-gradient(
-    rgba(255, 143, 178, 0.7) 0%,
-    rgba(167, 151, 255, 0.7) 25%,
-    rgba(167, 151, 255, 0.7) 50%,
+    rgba(255, 143, 178, 0.85) 0%,
+    rgba(167, 151, 255, 0.85) 25%,
+    rgba(167, 151, 255, 0.85) 50%,
     rgba(0, 0, 0, 0) 100%
   );
   transform: translate(0px, 300px);
@@ -68,7 +68,10 @@ const StyledCardOverlay = styled.div`
 
 function CardOverlay(props: IProps) {
   const { children, display } = props;
-  return <StyledCardOverlay className={display}>{children}</StyledCardOverlay>;
+  return (
+    <StyledCardOverlay 
+      className={display}>{children}
+    </StyledCardOverlay>);
 }
 
 export default CardOverlay;

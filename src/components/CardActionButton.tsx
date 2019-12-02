@@ -51,7 +51,6 @@ function CardActionButton(props: IProps) {
       onFocus={() => onHover(true)}
       onMouseDown={() => onClickDown()}
       onMouseUp={() => onClickUp()}
-      onClick={() => onClickUp()}
       onKeyDown={event => (isEnterOrSpace(event) ? onClickDown() : null)}
       onKeyUp={event => (isEnterOrSpace(event) ? onClickUp() : null)}
     >
